@@ -14,17 +14,10 @@ import {formatSeconds} from '../utils/formatSeconds';
 import {
     SvgVideoUnlock,
     SvgVideoLocking,
-    SvgVideoNextBtn,
     SvgVideoLoading,
     SvgVideoBrightness,
-    SvgVideoSetting,
     SvgVideoNoSound,
     SvgVideoStop,
-    SvgVideoPlay,
-    SvgVideoAllBox,
-    SvgVideoSmallBox,
-    SvgVideoBack,
-    SvgVideoScang,
     SvgVideoSound,
 } from '../component/svg';
 
@@ -32,10 +25,8 @@ const {height, width} = Dimensions.get('screen');
 
 
 export const Loading = (props) => {
-
     return (
         <>
-
             {
                 props.showLoading ?
                     <View
@@ -70,7 +61,6 @@ export const Loading = (props) => {
         </>
 
     );
-
 };
 
 
@@ -302,7 +292,7 @@ export const BottomSpeed = (props) => {
                     {/* 进度条*/}
                     <Animated.View style={{
                         zIndex: 12,
-                        width: props.playhideContsDotX === null ? 0 : props.playhideContsDotX,
+                        width: props.playhideContsDotX === null ? 0 : (props.admRePlay ? 0 : props.playhideContsDotX),
                         height: Platform.OS === 'android' ? 2 : 3,
                         backgroundColor: '#e54602',
                     }}></Animated.View>
@@ -394,7 +384,8 @@ export class Speed extends Component {
                 bottom: 0,
             }}>
                 <View>
-                    <Text style={{color: '#ffffff'}}>{nowTime == '00:00' ? props.nowTime : nowTime}</Text>
+                    <Text
+                        style={{color: '#ffffff'}}>{props.admRePlay ? '00:00' : (nowTime == '00:00' ? props.nowTime : nowTime)}</Text>
                 </View>
 
                 <View style={{
@@ -409,14 +400,14 @@ export class Speed extends Component {
                     {/* 进度条*/}
                     <Animated.View style={{
                         zIndex: 12,
-                        width: dotStart ? dotWidth : (props.playDotX === null ? 0 : props.playDotX),
+                        width: dotStart ? dotWidth : props.admRePlay ? 0 : (props.playDotX === null ? 0 : props.playDotX),
                         height: 2,
                         backgroundColor: '#e54602',
                     }}></Animated.View>
                     {/* 缓存条*/}
                     <Animated.View style={{
                         zIndex: 11,
-                        width: props.playBufferX === null ? 0 : props.playBufferX,
+                        width: props.playBufferX === null ? 0 : props.admRePlay ? 0 : props.playBufferX,
                         height: 2,
                         backgroundColor: 'rgba(225,225,225,1)',
                         position: 'absolute',
@@ -452,7 +443,7 @@ export class Speed extends Component {
                 </View>
 
                 <View style={{}}>
-                    <Text style={{color: '#ffffff'}}>{props.allTime}</Text>
+                    <Text style={{color: '#ffffff'}}>{props.admRePlay ? '00:00' : props.allTime}</Text>
                 </View>
             </View>
         );
