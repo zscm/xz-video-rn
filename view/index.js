@@ -310,16 +310,16 @@ export const BottomSpeed = (props) => {
 export const Header = (props) => {
     return (
         <>
-            {
-                props.width === width && Platform.OS === 'android' ?
-                    props.isFindPage ? null :
-                        <View style={{height: StatusBar.currentHeight, backgroundColor: '#252942'}}></View>
-                    :
-                    <SafeAreaView style={{backgroundColor: '#252942'}}/>
-            }
-            <StatusBar backgroundColor={'#252942'}
-                       barStyle={'light-content'}
-                       networkActivityIndicatorVisible={true}/>
+            {/*{*/}
+            {/*    props.width === width && Platform.OS === 'android' ?*/}
+            {/*        props.isFindPage ? null :*/}
+            {/*            <View style={{height: StatusBar.currentHeight, backgroundColor: '#252942'}}></View>*/}
+            {/*        :*/}
+            {/*        <SafeAreaView style={{backgroundColor: '#252942'}}/>*/}
+            {/*}*/}
+            {/*<StatusBar backgroundColor={'#252942'}*/}
+            {/*           barStyle={'light-content'}*/}
+            {/*           networkActivityIndicatorVisible={true}/>*/}
         </>
     );
 

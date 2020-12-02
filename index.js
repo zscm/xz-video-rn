@@ -43,7 +43,11 @@ import Orientation from 'react-native-orientation-locker';
 import {getMaxdata} from './utils/getMaxdata';
 
 const {height, width} = Dimensions.get('screen');
-
+const OS = Platform.OS;
+const ios = OS === 'ios';
+const isIPhoneX = ios && height === 812 && width === 375;
+const isIPhoneXX = ios && height === 896 && width === 414;
+const statusBarHeight = ios ? ((isIPhoneX || isIPhoneXX) ? 44 : 20) : StatusBar.currentHeight;
 
 class VideoPlayer extends React.Component {
     static defaultProps = {
@@ -205,6 +209,7 @@ class VideoPlayer extends React.Component {
             }, () => {
                 StatusBar.setHidden(false);
                 StatusBar.setBarStyle('light-content');
+                StatusBar.setBackgroundColor("#1a1e33");
                 // 更新播放进度
                 this.playDotX = this.dotX.interpolate({
                     inputRange: [0, this.state.duration],
@@ -917,7 +922,7 @@ class VideoPlayer extends React.Component {
                 <View ref={ref => this.videoBox = ref} style={{
                     backgroundColor: '#000',
                     position: 'relative',
-                    marginTop: this.isFindPage ? 0 : smallP ? Platform.OS === 'ios' ? 44 : StatusBar.currentHeight : 0,
+                    marginTop: this.isFindPage ? 0 : smallP ? statusBarHeight : 0,
                 }}>
 
                     <View style={{}}>
