@@ -313,12 +313,12 @@ export const Header = (props) => {
             {
                 props.width === width && Platform.OS === 'android' ?
                     props.isFindPage ? null :
-                        <View style={{height: StatusBar.currentHeight, backgroundColor: '#fff'}}></View>
+                        <View style={{height: StatusBar.currentHeight, backgroundColor: '#252942'}}></View>
                     :
                     <SafeAreaView style={{backgroundColor: '#000'}}/>
             }
-            <StatusBar backgroundColor={'white'}
-                       barStyle={'dark-content'}
+            <StatusBar backgroundColor={'#252942'}
+                       barStyle={'light-content'}
                        networkActivityIndicatorVisible={true}/>
         </>
     );
