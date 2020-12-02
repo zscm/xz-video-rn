@@ -315,7 +315,7 @@ export const Header = (props) => {
                     props.isFindPage ? null :
                         <View style={{height: StatusBar.currentHeight, backgroundColor: '#252942'}}></View>
                     :
-                    <SafeAreaView style={{backgroundColor: '#000'}}/>
+                    <SafeAreaView style={{backgroundColor: '#252942'}}/>
             }
             <StatusBar backgroundColor={'#252942'}
                        barStyle={'light-content'}
