@@ -920,7 +920,7 @@ class VideoPlayer extends React.Component {
                 {/*{this.props.statusBar ? (smallP && this.props.statusBar()) :*/}
                 {/*    <Header isFindPage={this.isFindPage} width={this.state.width}/>}*/}
                 <View ref={ref => this.videoBox = ref} style={{
-                    backgroundColor: '#000',
+                    backgroundColor: '#252942',
                     position: 'relative',
                     marginTop: this.isFindPage ? 0 : smallP ? statusBarHeight : 0,
                 }}>
