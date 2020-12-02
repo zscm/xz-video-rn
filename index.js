@@ -83,7 +83,7 @@ class VideoPlayer extends React.Component {
                 admRePlay: false,//重置视频进度状态
                 opacity: new Animated.Value(1),
                 paused: true,
-                width: width - 20,
+                width: width,
                 smallP: true,//当前是否是小屏
                 statusBarH: 44,
                 isEnd: false,//是否播放完了
@@ -196,7 +196,7 @@ class VideoPlayer extends React.Component {
         this.props.navigation && this.props.navigation.setParams({enableGestures: true});
         this.dotspeed && this.dotspeed.setdotStart(false);
         this.setState({
-                width: width - 20,
+                width: width,
                 height: width * 210 / 375,
                 statusBarH: 0,//
                 smallP: true,
