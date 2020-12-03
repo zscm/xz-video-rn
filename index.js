@@ -937,7 +937,7 @@ class VideoPlayer extends React.Component {
                             >
                                 <Video
                                     key={this.url}
-                                    source={{uri: this.props.url}}
+                                    source={{uri: this.props.url,type: 'm3u8'}}
                                     ref={(ref) => {
                                         this.player = ref;
                                     }}
